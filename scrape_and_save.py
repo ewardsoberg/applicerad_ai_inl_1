@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
 import csv
 import numpy as np
 from math import sin, cos, sqrt, atan2, radians
@@ -72,6 +71,4 @@ def save_data_to_csv(header: list, data: list):
 
 
 # Example of a great pythonic function call, see below.
-
-#save_data_to_csv(headers, turn_correct_data_to_correct_shape(scrape_correct_data_from_website(URL)))
-
+save_data_to_csv(headers, turn_correct_data_to_correct_shape(scrape_correct_data_from_website(URL)))
