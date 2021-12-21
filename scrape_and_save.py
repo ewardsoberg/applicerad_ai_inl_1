@@ -37,7 +37,7 @@ def calc_distance(start: list, stop: list):
     return distance
 
 
-def turn_correct_data_to_correct_shape(data: list):
+def turn_correct_data_to_correct_shape(data: list, parsed = True):
     """Function that sort out cities, long and lat from data.
     Depending on if the long or lat is 'S', 'N', 'W', 'E'
     it makes it to positive or negative float and removes the letter."""
@@ -60,8 +60,11 @@ def turn_correct_data_to_correct_shape(data: list):
     cities_distance = [[data[0][0], data[1][0],
                         calc_distance(data[0],
                         data[1])]for data in product(new_cities, repeat=2)]
-    return cities_distance
-
+    if parsed:
+        return cities_distance
+    else:
+        long_lat_only = [(city[1], city[2]) for city in new_cities]
+        return long_lat_only
 
 def save_data_to_csv(header: list, data: list):
     """Take headers, data and save it to a csv file called city_distance"""
