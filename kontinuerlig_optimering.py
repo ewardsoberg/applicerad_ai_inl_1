@@ -19,6 +19,8 @@ def kontinuerlig_optimering_21(coord: tuple):
 
 
 def kontinuerligt_optimering_31(coord: tuple):
+    """Calculate f(x, y) = e-0.05(x2+y2)(arctan(x) − arctan(y) + e−(x2+y2)cos2(x)sin2(y))
+     given two points in a tuple. Returns the points and result"""
     result = e ** ((coord[0] ** 2 + coord[1] ** 2) * -0.05) * (atan(coord[0]) - atan(coord[1]) + (e ** (-(3 ** 2 + 2 ** 2)) * cos(coord[0]) ** 2 * sin(coord[1]) ** 2))
     return coord, result
 

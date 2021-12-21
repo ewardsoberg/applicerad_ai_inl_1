@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 jupyter = "*"
 notebook = "*"
+randomized-tsp = "*"
+pandas = "*"
+mlrose = "*"
+six = "*"
 
 [dev-packages]
 
