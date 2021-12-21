@@ -10,6 +10,9 @@ randomized-tsp = "*"
 pandas = "*"
 mlrose = "*"
 six = "*"
+matplotlib = "*"
+sco = "*"
+scikit-opt = "*"
 
 [dev-packages]
 

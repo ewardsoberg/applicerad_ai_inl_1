@@ -72,5 +72,6 @@ def save_data_to_csv(header: list, data: list):
 def get_data_from_csv():
     data = []
     return data
+
 # Example of a great pythonic function call, see below.
-save_data_to_csv(headers, turn_correct_data_to_correct_shape(scrape_correct_data_from_website(URL)))
+#save_data_to_csv(headers, turn_correct_data_to_correct_shape(scrape_correct_data_from_website(URL)))
