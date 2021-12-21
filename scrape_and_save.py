@@ -69,6 +69,8 @@ def save_data_to_csv(header: list, data: list):
         csv.writer(c).writerow(header)
         csv.writer(c).writerows(data)
 
-
+def get_data_from_csv():
+    data = []
+    return data
 # Example of a great pythonic function call, see below.
 save_data_to_csv(headers, turn_correct_data_to_correct_shape(scrape_correct_data_from_website(URL)))
