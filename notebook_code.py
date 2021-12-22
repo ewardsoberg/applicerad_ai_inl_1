@@ -188,12 +188,14 @@ def print_route(result):
     print('')
     print(f'Distance traveled: {result[0][0]}')
     '''
+
     coordinates = [facit_dict[way[0]] for way in result[0][1]]
     coordinates = np.array(coordinates)
 
     fig, ax = plt.subplots(1, 2)
     ax[0].plot(coordinates[:, 0], coordinates[:, 1], 'o-r')
     plt.show()
+    return coordinates
 
 def plot_result(result, verb=False):
 
@@ -293,7 +295,7 @@ def print_highscores():
 
 
 result = run_random_travel(rounds=100000)
-print_route(result)
+coordinates_random = print_route(result)
 
 #plot_result(result)
 result_for_highscore = [x[0] for x in result]
