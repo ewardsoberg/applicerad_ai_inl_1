@@ -66,14 +66,18 @@ def turn_correct_data_to_correct_shape(data: list, parsed = True):
         long_lat_only = [(city[1], city[2]) for city in new_cities]
         return long_lat_only
 
+
 def save_data_to_csv(header: list, data: list):
     """Take headers, data and save it to a csv file called city_distance"""
-    with open('city_distances.csv', 'w', newline="") as c:
+    with open('csv_files/city_distances.csv', 'w', newline="") as c:
         csv.writer(c).writerow(header)
         csv.writer(c).writerows(data)
+
 
 def get_data_from_csv():
     data = []
     return data
+
+
 # Example of a great pythonic function call, see below.
 #save_data_to_csv(headers, turn_correct_data_to_correct_shape(scrape_correct_data_from_website(URL)))
