@@ -3,24 +3,19 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sko.ACA import ACA_TSP
+from util import get_points_for_algorithms, get_distance_matrix_for_algorithm
+"""
+Use city_long_lat.csv to create 120 points of long and lat.
+Makes a distance matrix in shape (120, 120) out of the calculated distances between two cities.
+Uses scikit learn Ant Colony Algorithm to do the Travelling salesperson problem.
+Plot the result where the x and y points is real long and lat from cities.
+Result of three different max_iter [100, 250, 500] is stored in result_plots.
+"""
 
-points = []
-distances = []
-with open('csv_files/city_long_lat.csv', 'r') as c:
-    reader1 = csv.reader(c)
-    for row in reader1:
-        points.append([row[1], row[2]])
-with open('csv_files/city_distances.csv', 'r') as cd:
-    reader2 = csv.reader(cd)
-    for row in reader2:
-        distances.append(row[2])
-distances.pop(0)
-points.pop(0)
-distances = np.array([float(x) for x in distances]).reshape(120, 120)
-points = [[float(x) for x in y] for y in points]
-num_points = len(points)
-points_coordinate = np.array(points)
-distance_matrix = distances
+points_coordinate = get_points_for_algorithms()
+distance_matrix = get_distance_matrix_for_algorithm()
+num_points = len(points_coordinate)
+print(num_points)
 
 
 def cal_total_distance(routine):
@@ -32,7 +27,7 @@ def cal_total_distance(routine):
 
 
 aca = ACA_TSP(func=cal_total_distance, n_dim=num_points,
-              size_pop=50, max_iter=500,
+              size_pop=10, max_iter=50,
               distance_matrix=distance_matrix)
 
 best_x, best_y = aca.run()

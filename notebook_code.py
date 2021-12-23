@@ -38,7 +38,7 @@ def get_csv():
         url = "https://www.infoplease.com/world/geography/major-cities-latitude-longitude-and-corresponding-time-zones"
         headers = ['start city', 'stop city', 'distance']
         save_data_to_csv(headers, turn_correct_data_to_correct_shape(scrape_correct_data_from_website(url), True))
-    with open('city_distances.csv', mode='r') as distances:
+    with open('csv_files/city_distances.csv', mode='r') as distances:
         reader = csv.reader(distances)
         for row in reader:
             data.append(row)
